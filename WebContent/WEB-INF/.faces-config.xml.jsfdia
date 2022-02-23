@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#actividadCampo.xhtml"
+  PATH="/actividadCampo.xhtml" SHAPE="664,56,50,89" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#actividadCampo.xhtml:0" NAME="item"
+   PATH="/actividadCampo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="reporteEstacion::#reporteEstacion.xhtml"
+    NAME="output" PATH="/reporteEstacion.xhtml"
+    TARGET="rules:#reporteEstacion.xhtml" TITLE="reporteEstacion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="reporteUsuario::#reporteUsuario.xhtml"
+    NAME="output1" PATH="/reporteUsuario.xhtml"
+    TARGET="rules:#reporteUsuario.xhtml" TITLE="reporteUsuario" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="reporteMetodo::#reporteMetodo.xhtml"
+    NAME="output2" PATH="/reporteMetodo.xhtml"
+    TARGET="rules:#reporteMetodo.xhtml" TITLE="reporteMetodo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="reporteFecha::#reporteFecha.xhtml"
+    NAME="output3" PATH="/reporteFecha.xhtml"
+    TARGET="rules:#reporteFecha.xhtml" TITLE="reporteFecha" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="reportesTodos::#reportesTodos.xhtml"
+    NAME="output4" PATH="/reportesTodos.xhtml"
+    TARGET="rules:#reportesTodos.xhtml" TITLE="reportesTodos" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#reporteEstacion.xhtml"
+  PATH="/reporteEstacion.xhtml" SHAPE="422,102,0,0"
+  model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#reporteFecha.xhtml"
+  PATH="/reporteFecha.xhtml" SHAPE="488,240,50,25"
+  model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#reporteMetodo.xhtml"
+  PATH="/reporteMetodo.xhtml" SHAPE="344,272,50,25"
+  model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#reporteUsuario.xhtml"
+  PATH="/reporteUsuario.xhtml" SHAPE="112,184,50,25"
+  model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#templateView.xhtml"
+  PATH="/templateView.xhtml" SHAPE="78,317,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#templateView.xhtml:0" NAME="item"
+   PATH="/templateView.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="verParametros::#verParametros.xhtml"
+    NAME="output" PATH="/verParametros.xhtml"
+    TARGET="rules:#verParametros.xhtml" TITLE="verParametros" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#verParametros.xhtml"
+  PATH="/verParametros.xhtml" SHAPE="249,375,0,0"
+  model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#reportesTodos.xhtml"
+  PATH="/reportesTodos.xhtml" SHAPE="816,240,50,25"
+  model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#altaForm.xhtml" PATH="/altaForm.xhtml"
+  SHAPE="318,515,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#altaForm.xhtml:0" NAME="item"
+   PATH="/altaForm.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="gestionForm::#gestionForm.xhtml"
+    NAME="output" PATH="/gestionForm.xhtml"
+    TARGET="rules:#gestionForm.xhtml" TITLE="gestionForm" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#gestionForm.xhtml" PATH="/gestionForm.xhtml"
+  SHAPE="641,478,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#gestionForm.xhtml:0" NAME="item"
+   PATH="/gestionForm.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="altaForm::#altaForm.xhtml" NAME="output"
+    PATH="/altaForm.xhtml" TARGET="rules:#altaForm.xhtml"
+    TITLE="altaForm" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition template="/layouts/logintemplate.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="content">
+		<div class="container mt--5 pb-5">
+			<div class="row justify-content-center">
+				<div class="col-lg-5 col-md-7">
+					<div class="card bg-secondary border-0 mb-0 loginCard">
+						<div class="card-header bg-transparent">
+							<div class="text-muted text-center mt-2 mb-3">Ingreso</div>
+							<div class="text-muted text-center mt-2 mb-3">
+
+								<h:messages id="messages"
+									class="logmsj animate__animated animate__tada"
+									showDetail="true" globalOnly="true" closable="true"
+									style="font-weight:600">
+									<i class="bi bi-exclamation-triangle" />
+								</h:messages>
+
+							</div>
+						</div>
+						<div class="card-body px-lg-5 py-lg-5">
+
+							<h:form role="form">
+								<div class="form-group mb-3">
+									<div
+										class="input-group input-group-merge input-group-alternative">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-user"></i>
+											</span>
+										</div>
+										<h:inputText id="nombre" class="form-control"
+											value="#{login.username}" a:placeholder="Ingrese usuario" />
+									</div>
+								</div>
+								<div class="form-group">
+									<div
+										class="input-group input-group-merge input-group-alternative">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i
+												class="ni ni-lock-circle-open"></i></span>
+										</div>
+										<h:inputSecret class="form-control"
+											a:placeholder="Ingrese contraseña" value="#{login.password}">
+										</h:inputSecret>
+									</div>
+								</div>
+
+								<div class="text-center">
+									<h:commandButton id="lg" action="#{login.conexion()}"
+										value="Login" class="btn btn-primary my-4" />
+								</div>
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>

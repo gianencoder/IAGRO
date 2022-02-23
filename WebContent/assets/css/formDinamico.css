@@ -1,0 +1,618 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #f8f9fe;
+	font-family: 'Lato', sans-serif;
+}
+
+.contenedor {
+	width: 100%;
+	padding: 40px 20px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	background: #f8f9fe;
+	align-items: left;
+	border-radius: 10px;
+	padding: 40px 20px;
+	margin-left: 120px;
+	margin-top: -74px;
+}
+
+.camposDinamicos {
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	margin-left: 15px;
+	width: 150px;
+	font-size: 13px;
+	border-bottom: none;
+}
+
+.camposDinamicos:focus {
+	outline: none;
+}
+
+.tagController {
+	font-size: 0px;
+	height: 1px;
+	width: 1px;
+	margin-top: -59px;
+	margin-left: 23px;
+}
+
+.tarjeta {
+	width: 100%;
+	max-width: 550px;
+	position: relative;
+	color: white;
+	transition: .3s ease all;
+	transform: rotateY(0deg);
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+	cursor: default;
+}
+
+.tarjeta.active {
+	transform: rotateY(180deg);
+}
+
+.cmbLocalidad {
+	clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.cmbLocalidad.active {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.cmbDep {
+	clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.cmbDep.active {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.cmbReg {
+	clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.cmbReg.active {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.cmbMet {
+	clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.cmbMet.active {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.cmbEst {
+	clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.cmbEst.active {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.cmbEqp {
+	clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.cmbEqp.active {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.tarjeta>div {
+	padding: 30px;
+	border-radius: 15px;
+	min-height: 650px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.tarjeta .delantera {
+	width: 100%;
+	background: #087C08;
+}
+
+.delantera .label {
+	font-size: 32px;
+	color: black;
+	margin-left: -17px;
+	margin-top: -150px;
+}
+
+.delantera .numero {
+	font-size: 17px;
+	color: black;
+	margin-left: 6px;
+	margin-top: -3px;
+}
+
+.delantera .felxbox {
+	display: flex;
+	justify-content: space-between;
+}
+
+.contenedor-btn .btn-abrir-formulario {
+	width: 150px;
+	height: 20px;
+	line-height: 10px;
+	background: blue;
+	padding: 5px;
+	transition: all .2s ease;
+	border: none;
+	font-size: 12px;
+	border-radius: 15px;
+	cursor: pointer;
+	margin-top: -350px;
+	margin-left: 35px;
+	border-radius: 15px;
+}
+
+.contenedor-btn .btn-abrir-formulario:hover {
+	font-size: 25px;
+}
+
+.contenedor-btn .btn-abrir-formulario:focus {
+	outline: none;
+}
+
+.contenedor-btn .btn-abrir-formulario.active {
+	
+}
+
+.txtCampo {
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	font-size: 13px;
+	margin-left: 15px;
+	border-bottom: 1px solid black;
+	margin-left: 37px;
+	background: none;
+}
+
+.cmbTipoDato {
+	font-size: 13px;
+	margin-left: 35px;
+	width: 165px;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	background: none;
+}
+
+.clean {
+	margin-top: -100px;
+	margin-left: 30px;
+	font-size: 12px;
+	color: #ea6b50;
+	background: none;
+	border: none;
+	margin-left: 30px;
+}
+
+.clean:focus {
+	outline: none;
+	color: #ea6b50;
+}
+
+.clean:hover {
+	outline: none;
+	color: red;
+}
+
+.cmbTipoDato:focus {
+	outline: none;
+}
+
+.txtCampo:focus {
+	outline: none;
+	border-bottom: 1px solid lightblue;
+}
+
+.delantera {
+	max-width: 840px;
+	max-height: 1122px;
+	height: 689px;
+	color: black;
+	background: white;
+	width: 100%;
+	padding: 150px 30px 30px 30px;
+	border-radius: 4px;
+	position: relative;
+	transition: clip-path .3s ease-out;
+	margin-top: -1100px;
+	border: 1px solid #9D9B9B;
+	z-index: 2;
+}
+
+.cuadrado {
+	margin-top: 152px;
+	width: 365px;
+	height: 165px;
+	margin-left: -4px;
+	color: black;
+	border: 1px solid lightblue;
+	background: aliceblue;
+	border-radius: 5px;
+	word-wrap: break-word;
+}
+
+.checkbox {
+	margin-left: 90px;
+	display: block;
+	padding: 10px;
+	margin-top: 25px;
+}
+
+.checkbox.todos {
+	margin-top: -395.7px;
+	margin-left: 40px;
+}
+
+.verde {
+	color: #2B821D;
+}
+
+.rojo {
+	color: #A53434;
+}
+
+.ai {
+	outline: none;
+	color: white;
+	border-top: none;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	margin-left: 800px;
+	width: 0px;
+	height: 0px;
+	margin-top: -1000px;
+}
+
+.titulo {
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+
+.titulo.ob {
+	border-bottom: none;
+	font-size: 25px;
+}
+
+.options {
+	font-size: 13px;
+	margin-left: 10px;
+}
+
+.titulo:focus {
+	
+}
+
+.formulario {
+	background: white;
+	max-width: 794px;
+	max-height: 1123px;
+	border-radius: 4px;
+	border-left: 62px;
+	z-index: 1;
+	border: 1px solid lightblue;
+	display: flex;
+	flex: 3;
+}
+
+.formulario-tarjeta {
+	height: 1119px;
+	width: 790px;
+	display: flex;
+	flex: 2;
+}
+
+.descripcion {
+	margin-top: 95px;
+	width: 409px;
+	height: 70px;
+	font-size: 13px;
+	margin-left: 43px;
+	color: black;
+	border-color: #9D9B9B;
+	border-radius: 5px;
+	word-wrap: break-word;
+	margin-left: 43px;
+}
+
+.descripcion:focus {
+	border: 1px solid #087C08;
+	outline: none;
+}
+
+.parametro1 {
+	margin-top: 25px;
+	margin-left: 43px;
+}
+
+.sumar-restar {
+	width: 50px;
+	height: 50px;
+	font-size: 20px;
+	line-height: 10px;
+	background: none;
+	padding: 5px;
+	transition: all .2s ease;
+	border: none;
+	border-radius: 15px;
+	cursor: pointer;
+}
+
+.flexbox {
+	margin-top: 50px;
+	margin-left: 14px;
+	width: 100%;
+	height: 300px;
+}
+
+.tituloView {
+	font-size: 32px;
+	color: black;
+	margin-left: -2px;
+	margin-top: -146px;
+}
+
+.localidad {
+	margin-top: 20px;
+	margin-left: 43px;
+	background: aliceblue;
+	width: 195px;
+	border-radius: 5px;
+	border: 1px solid lightblue;
+	height: 30px;
+}
+
+.loc {
+	background: aliceblue;
+	width: 50%;
+	height: 50px;
+	display: block;
+	margin-left: -16px;
+	border-radius: 5px;
+	margin-top: 20px;
+	border: 1px solid lightblue;
+}
+
+.fa-times {
+	margin-left: 350px;
+	color: #F56C6C;
+	width: auto;
+}
+
+.fa-times:hover {
+	font-size: 18px;
+	color: #F53131;
+}
+
+.cmbLoc {
+	margin-top: -3px;
+	border-radius: 5px;
+}
+
+.cmbLoc:focus {
+	outline: none;
+}
+
+.plocalidad {
+	margin-top: -50px;
+	font-weight: 500;
+}
+
+.departamento {
+	margin-top: 10px;
+	margin-left: 43px;
+	background: aliceblue;
+	width: 195px;
+	border-radius: 5px;
+	border: 1px solid lightblue;
+	height: 30px;
+}
+
+.depar {
+	background: aliceblue;
+	width: 50%;
+	height: 50px;
+	display: block;
+	margin-left: -16px;
+	border-radius: 5px;
+	margin-top: 20px;
+	border: 1px solid lightblue;
+}
+
+.pdepartamento {
+	margin-top: -50px;
+	font-weight: 500;
+}
+
+.region {
+	margin-left: 44px;
+	margin-top: 10px;
+	background: aliceblue;
+	width: 195px;
+	border-radius: 5px;
+	border: 1px solid lightblue;
+	height: 30px;
+}
+
+.reg {
+	background: aliceblue;
+	width: 50%;
+	height: 50px;
+	display: block;
+	margin-left: -16px;
+	border-radius: 5px;
+	margin-top: 20px;
+	border: 1px solid lightblue;
+}
+
+.pregion {
+	margin-top: -50px;
+	font-weight: 500;
+}
+
+.estacion {
+	margin-left: 44px;
+	margin-top: 10px;
+	background: aliceblue;
+	width: 195px;
+	border-radius: 5px;
+	border: 1px solid lightblue;
+	height: 30px;
+}
+
+.est {
+	background: aliceblue;
+	width: 50%;
+	height: 50px;
+	display: block;
+	margin-left: -16px;
+	border-radius: 5px;
+	margin-top: 20px;
+	border: 1px solid lightblue;
+}
+
+.pestacion {
+	margin-top: -50px;
+	font-weight: 500;
+}
+
+.metodo {
+	margin-left: 44px;
+	margin-top: 10px;
+	background: aliceblue;
+	width: 195px;
+	border-radius: 5px;
+	border: 1px solid lightblue;
+	height: 30px;
+}
+
+.met {
+	background: aliceblue;
+	width: 50%;
+	height: 50px;
+	display: block;
+	margin-left: -16px;
+	border-radius: 5px;
+	margin-top: 20px;
+	border: 1px solid lightblue;
+}
+
+.pmetodo {
+	margin-top: -50px;
+	font-weight: 500;
+}
+
+.equipamiento {
+	margin-left: 44px;
+	margin-top: 10px;
+	background: aliceblue;
+	width: 195px;
+	border-radius: 5px;
+	border: 1px solid lightblue;
+	height: 30px;
+}
+
+.eqp {
+	background: aliceblue;
+	width: 50%;
+	height: 50px;
+	display: block;
+	margin-left: -16px;
+	border-radius: 5px;
+	margin-top: 20px;
+	border: 1px solid lightblue;
+}
+
+.pequipamiento {
+	margin-top: -50px;
+	font-weight: 500;
+}
+
+.visibilidad {
+	background: aliceblue;
+	width: 50%;
+	height: 55px;
+	display: block;
+	margin-left: -16px;
+	border-radius: 5px;
+	margin-top: 20px;
+	border: 1px solid lightblue;
+	height: 55px;
+	margin-bottom: 20px;
+}
+
+.eyeClosed {
+	margin-top: -149px;
+	margin-bottom: 150px;
+	width: 16%;
+	height: 38px;
+	margin-left: 650px;
+}
+
+.fa-eye-slash {
+	margin-left: 85px;
+}
+
+.fa-eye-slash:hover {
+	margin-left: 80px;
+	font-size: 25px;
+}
+
+.fa-plus:hover {
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.tarjeta>div {
+	width: 140%;
+	padding: 30px;
+	border-radius: 15px;
+	min-height: 650px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-top: -512px;
+	padding: 30px;
+}
+
+.guardarForm {
+	margin-top: 10px;
+}
+
+.eqpAlta {
+	margin-top: -730px;
+	height: 165px;
+	background: aliceblue;
+	width: 50%;
+	display: block;
+	margin-left: 361px;
+	border-radius: 5px;
+	border: 1px solid lightblue;
+	margin-bottom: 20px;
+}
+
+.eqp {
+	height: 10px;
+	width: 10px;
+	font-size: 5px;
+}
+}

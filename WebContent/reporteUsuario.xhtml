@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition template="/layouts/main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+	<ui:define name="content">
+
+
+		<div id="preloader">
+			<i class="circle-preloader"></i>
+		</div>
+
+		<div class="header bg-success pb-6">
+			<div class="container-fluid">
+				<div class="header-body">
+					<div class="row align-items-center py-4">
+						<div class="col-lg-6 col-7">
+							<h6 class="h2 text-white d-inline-block mb-0">Reportes por
+								usuarios experto</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid mt--6">
+			<div class="row">
+				<div class="col">
+					<div class="card">
+
+						<!-- Light table -->
+						<div class="table-responsive mt-3">
+							<h:form
+								rendered="#{logueado.rol == 'Administrador' || logueado.rol == 'Experto'}">
+
+								<h:dataTable id="usersTable"
+									value="#{reporteBean.porUsuario(3)}"
+									class="table align-items-center table-flush" var="actividad">
+
+									<h:column>
+										<f:facet name="header"> Nombre</f:facet>
+										<h:outputText value="#{actividad.nombre}"
+											style="text-transform:capitalize" />
+									</h:column>
+									<h:column>
+										<f:facet name="header"> Descripcion</f:facet>
+										<h:outputText value="#{actividad.descripcion}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header"> Método</f:facet>
+										<ui:fragment
+											rendered="#{actividad.metodo.nombre == 'AA-N/A-AA'}">
+											<span
+												class="badge badge-pill badge-danger text-dark font-weight-bold"
+												data-bs-toggle="tooltip" title="No aplica">N/A</span>
+										</ui:fragment>
+
+										<ui:fragment
+											rendered="#{actividad.metodo.nombre != 'AA-N/A-AA'}">
+											<h:outputText value="#{actividad.metodo}" />
+										</ui:fragment>
+									</h:column>
+									<h:column>
+										<f:facet name="header"> Estación</f:facet>
+										<ui:fragment
+											rendered="#{actividad.estacion.nombre == 'AA-N/A-AA'}">
+											<span
+												class="badge badge-pill badge-danger text-dark font-weight-bold"
+												data-bs-toggle="tooltip" title="No aplica">N/A</span>
+										</ui:fragment>
+
+										<ui:fragment
+											rendered="#{actividad.estacion.nombre != 'AA-N/A-AA'}">
+											<h:outputText value="#{actividad.estacion}" />
+										</ui:fragment>
+									</h:column>
+									<h:column>
+										<f:facet name="header"> Fecha</f:facet>
+										<h:outputText value="#{actividad.fechaInicio}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header"> Usuario</f:facet>
+										<h:outputText value="#{actividad.usuario.username}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header"> Estado</f:facet>
+										<ui:fragment rendered="#{actividad.activoSN == 'Activo'}">
+											<span
+												class="badge badge-pill badge-success text-dark font-weight-bold">Activo</span>
+										</ui:fragment>
+
+										<ui:fragment rendered="#{actividad.activoSN == 'Inactivo'}">
+											<span
+												class="badge badge-pill badge-danger text-dark font-weight-bold">Inactivo</span>
+										</ui:fragment>
+									</h:column>
+								</h:dataTable>
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

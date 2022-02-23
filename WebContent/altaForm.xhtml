@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition template="/layouts/main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+
+	<ui:define name="content">
+
+		<div class="header bg-success pb-6">
+			<div class="container-fluid">
+				<div class="header-body">
+					<div class="row align-items-center py-4">
+						<div class="col-lg-6 col-7">
+							<h6 class="h2 text-white d-inline-block mb-0">Formulario</h6>
+						</div>
+						<div class="col-lg-6 col-5 text-right">
+							<a href="gestionForm.xhtml" class="btn btn-sm btn-neutral">Lista
+								de formularios</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="container-fluid mt--6">
+			<div class="row">
+				<div class="col">
+					<div class="card">
+						<div class="card-header border-0">
+							<h3 class="mb-0">Nuevo formulario</h3>
+						</div>
+						<h:messages class="msj animate__animated animate__flipInX"
+							id="messages" showDetail="false" globalOnly="true"
+							closable="true" style="margin-left:25px; ">
+						</h:messages>
+
+						<div class="card-body">
+							<h:form id="formulario"
+								rendered="#{logueado.rol == 'Administrador'}">
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="form-group">
+											<h:inputText id="numero" class="form-control"
+												value="#{formulario.titulo}" a:placeholder="Ingrese título"
+												data-bs-toggle="tooltip" tabindex="0"
+												title="Campo obligatorio" converter="convertidor"
+												style=" border-left:none; border-top:none; border-right:none; font-size:25px">
+												<f:ajax render="msjNombre" excute="guardar" />
+											</h:inputText>
+											<h:message id="msjNombre" for="numero"
+												style="color:#AD0909; font-size:12px" />
+										</div>
+									</div>
+
+
+									<div class="col-lg-10">
+										<div class="form-group">
+											<h:outputLabel class="form-control-label" value="Descripción" />
+											<h:inputTextarea id="lastname" class="form-control"
+												value="#{formulario.descripcion}" data-bs-toggle="tooltip"
+												data-bs-placement="bottom" title="Campo obligatorio"
+												style="height:150px">
+											</h:inputTextarea>
+
+										</div>
+									</div>
+
+
+
+									<div class="col-lg-10">
+										<div class="form-group">
+											<i class="fas fa-certificate rojo" />
+											<p id="inactive" class="inactive" style="font-size: 11px">
+												(Inactivo)</p>
+											<input type="checkbox" id="adActivo" class="checkbox"
+												style="margin-top: -33px; margin-left: 105px" />
+											<h:inputText id="ai" class="ai"
+												value="#{formulario.activoSN}" />
+										</div>
+									</div>
+
+									<div class="col-lg-8">
+										<div class="form-group">
+											<h:outputLabel class="form-control-label" value="Visibilidad" />
+											<h:selectOneMenu value="#{formBean.visibilidad}"
+												class="form-control">
+												<f:selectItem itemValue="4" itemLabel="Visibilidad" />
+												<f:selectItem itemValue="Equipo" itemLabel="Equipo" />
+												<f:selectItem itemValue="Público" itemLabel="Público" />
+												<f:selectItem itemValue="Privado" itemLabel="Privado" />
+											</h:selectOneMenu>
+										</div>
+									</div>
+
+									<div class="col-lg-8">
+										<div class="form-group">
+											<h:outputLabel class="form-control-label"
+												value="Usuario responsable" />
+											<h:selectOneMenu value="#{formBean.userId}" id="userId"
+												class="form-control">
+												<f:selectItem itemLabel="Usuario" itemValue="1" />
+											</h:selectOneMenu>
+										</div>
+									</div>
+
+									<HR style="width: 100%" />
+
+									<h:outputLabel id="enabled" class="enabled"
+										value="#{formBean.activo}" />
+
+									<div class="col-lg-6">
+										<div class="form-group">
+											<h:outputLabel class="form-control-label" value="Localidad">
+												<input type="checkbox" id="adLocalidad"
+													class="checkbox form-check-input"
+													style="margin-top: -17px; margin-left: 105px" />
+											</h:outputLabel>
+											<div class="cmbLocalidad" id="cmbLocalidad">
+												<h:selectOneMenu id="select" class="select form-control"
+													value="#{formulario.localidad}">
+													<f:selectItem itemLabel="Localidad" itemValue="NO" />
+													<f:selectItem itemLabel="Localidad" itemValue="SI"
+														itemDisabled="true" />
+												</h:selectOneMenu>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-lg-6">
+										<div class="form-group">
+											<h:outputLabel class="form-control-label"
+												value="Departamento">
+												<input type="checkbox" id="adDepartamento"
+													class="checkbox form-check-input"
+													style="margin-top: -17px; margin-left: 105px" />
+											</h:outputLabel>
+											<div class="cmbDep" id="cmbDep">
+												<h:selectOneMenu id="selectDep"
+													class="selectDep form-control"
+													value="#{formulario.departamento}">
+
+													<f:selectItem itemLabel="Departamento" itemValue="NO" />
+													<f:selectItem itemLabel="Departamento" itemValue="SI"
+														itemDisabled="true" />
+												</h:selectOneMenu>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-lg-6">
+										<div class="form-group">
+											<h:outputLabel class="form-control-label" value="Región">
+												<input type="checkbox" id="adRegion"
+													class="checkbox form-check-input"
+													style="margin-top: -17px; margin-left: 105px" />
+											</h:outputLabel>
+											<div class="cmbReg" id="cmbReg">
+												<h:selectOneMenu id="selectReg"
+													class="selectReg form-control" value="#{formulario.region}">
+													<f:selectItem itemLabel="Región" itemValue="NO" />
+													<f:selectItem itemLabel="Región" itemValue="SI"
+														itemDisabled="true" />
+												</h:selectOneMenu>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-lg-6">
+										<div class="form-group">
+											<h:outputLabel class="form-control-label" value="Estación">
+												<input type="checkbox" id="adEstacion"
+													class="checkbox form-check-input"
+													style="margin-top: -17px; margin-left: 105px" />
+											</h:outputLabel>
+											<div class="cmbEst" id="cmbEst">
+												<h:selectOneMenu id="selectEst"
+													class="selectEst form-control"
+													value="#{formulario.estacion}">
+													<f:selectItem itemLabel="Estación" itemValue="NO" />
+													<f:selectItem itemLabel="Estación" itemValue="SI"
+														itemDisabled="true" />
+												</h:selectOneMenu>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-lg-6">
+										<div class="form-group">
+											<h:outputLabel class="form-control-label" value="Método">
+												<input type="checkbox" id="adMetodo"
+													class="checkbox form-check-input"
+													style="margin-top: -17px; margin-left: 105px" />
+											</h:outputLabel>
+											<div class="cmbMet" id="cmbMet">
+												<h:selectOneMenu id="selectMet"
+													class="selectMet form-control" value="#{formulario.metodo}">
+													<f:selectItem itemLabel="Método" itemValue="NO" />
+													<f:selectItem itemLabel="Método" itemValue="SI"
+														itemDisabled="true" />
+												</h:selectOneMenu>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-lg-6">
+										<div class="form-group">
+											<h:outputLabel class="form-control-label"
+												value="Equipamiento">
+												<input type="checkbox" id="adEquipamiento"
+													class="checkbox form-check-input"
+													style="margin-top: -17px; margin-left: 105px" />
+											</h:outputLabel>
+											<div class="cmbEqp" id="cmbEqp">
+												<h:selectOneMenu id="selectEqp"
+													class="selectEqp form-control"
+													value="#{formulario.equipamiento}">
+													<f:selectItem itemLabel="Equipamiento" itemValue="NO" />
+													<f:selectItem itemLabel="Equipamiento" itemValue="SI"
+														itemDisabled="true" />
+												</h:selectOneMenu>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-lg-12">
+										<h:commandButton class="btn btn-success my-4" id="guardar"
+											action="#{formBean.guardarTemplate(formulario)}"
+											value="Guardar" update=":message">
+										</h:commandButton>
+									</div>
+								</div>
+							</h:form>
+							<h:form>
+
+								<h:commandButton action="gestionForm"
+									image="assets/img/theme/atras16.png" data-bs-toggle="tooltip"
+									data-bs-placement="bottom" title="Volver" />
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<body>
+
+			<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+			<script src="https://kit.fontawesome.com/2c36e9b7b1.js"
+				crossorigin="anonymous"></script>
+
+			<script type="text/javascript" src="assets/js/formDinamico.js"></script>
+
+
+
+
+		</body>
+	</ui:define>
+
+</ui:composition>

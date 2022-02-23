@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+ <navigation-rule>
+  <from-view-id>/actividadCampo.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>reporteEstacion</from-outcome>
+   <to-view-id>/reporteEstacion.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>reporteUsuario</from-outcome>
+   <to-view-id>/reporteUsuario.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>reporteMetodo</from-outcome>
+   <to-view-id>/reporteMetodo.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>reporteFecha</from-outcome>
+   <to-view-id>/reporteFecha.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>reportesTodos</from-outcome>
+   <to-view-id>/reportesTodos.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/templateView.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>verParametros</from-outcome>
+   <to-view-id>/verParametros.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/altaForm.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>gestionForm</from-outcome>
+   <to-view-id>/gestionForm.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/gestionForm.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>altaForm</from-outcome>
+   <to-view-id>/altaForm.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <application/>
+</faces-config>
