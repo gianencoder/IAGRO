@@ -7,7 +7,6 @@
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 	<ui:define name="content">
 
-
 		<div id="preloader">
 			<i class="circle-preloader"></i>
 		</div>
@@ -59,6 +58,11 @@
 									</h:column>
 
 									<h:column>
+										<f:facet name="header"> Descripcion</f:facet>
+										<h:outputText value="#{form.descripcion}" />
+									</h:column>
+
+									<h:column>
 										<h:commandButton action="#{formBean.detalle(form.id)}"
 											value="Ver formulario" class="btn btn-sm btn-outline-success" />
 									</h:column>
@@ -87,6 +91,5 @@
 				</div>
 			</div>
 		</div>
-
 	</ui:define>
 </ui:composition>

@@ -7,11 +7,9 @@
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 	<ui:define name="content">
 
-
 		<div id="preloader">
 			<i class="circle-preloader"></i>
 		</div>
-
 		<div class="header bg-success pb-6">
 			<div class="container-fluid">
 				<div class="header-body">
@@ -32,8 +30,7 @@
 
 						<!-- Light table -->
 						<div class="table-responsive mt-3">
-							<h:form
-								rendered="#{logueado.rol == 'Administrador' || logueado.rol == 'Experto'}">
+							<h:form>
 
 								<h:dataTable id="usersTable" value="#{reporteBean.todas()}"
 									class="table align-items-center table-flush" var="actividad">
@@ -46,6 +43,28 @@
 									<h:column>
 										<f:facet name="header"> Descripcion</f:facet>
 										<h:outputText value="#{actividad.descripcion}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header"> Usuario</f:facet>
+										<h:outputText value="#{actividad.usuario.username}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header"> Tipo muestra</f:facet>
+										<ui:fragment
+											rendered="#{actividad.tipoMuestra.nombre == 'AA-N/A-AA'}">
+											<span
+												class="badge badge-pill badge-danger text-dark font-weight-bold"
+												data-bs-toggle="tooltip" title="No aplica">N/A</span>
+										</ui:fragment>
+
+										<ui:fragment
+											rendered="#{actividad.tipoMuestra.nombre != 'AA-N/A-AA'}">
+											<h:outputText value="#{actividad.tipoMuestra}" />
+										</ui:fragment>
+									</h:column>
+									<h:column>
+										<f:facet name="header"> Fecha</f:facet>
+										<h:outputText value="#{actividad.fechaInicio}" />
 									</h:column>
 									<h:column>
 										<f:facet name="header"> Método</f:facet>
@@ -74,14 +93,6 @@
 											rendered="#{actividad.estacion.nombre != 'AA-N/A-AA'}">
 											<h:outputText value="#{actividad.estacion}" />
 										</ui:fragment>
-									</h:column>
-									<h:column>
-										<f:facet name="header"> Fecha</f:facet>
-										<h:outputText value="#{actividad.fechaInicio}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header"> Usuario</f:facet>
-										<h:outputText value="#{actividad.usuario.username}" />
 									</h:column>
 									<h:column>
 										<f:facet name="header"> Localidad</f:facet>
@@ -141,7 +152,7 @@
 									</h:column>
 									<h:column>
 										<f:facet name="header"> Estado</f:facet>
-											<ui:fragment rendered="#{actividad.activoSN == 'Activo'}">
+										<ui:fragment rendered="#{actividad.activoSN == 'Activo'}">
 											<span
 												class="badge badge-pill badge-success text-dark font-weight-bold">Activo</span>
 										</ui:fragment>
@@ -158,6 +169,5 @@
 				</div>
 			</div>
 		</div>
-
 	</ui:define>
 </ui:composition>

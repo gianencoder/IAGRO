@@ -8,7 +8,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import org.hibernate.validator.constraints.Length;
 import dao.DepartamentoBean;
 import dao.EquipamientoBean;
 import dao.EstacionBean;
@@ -51,7 +50,6 @@ public class FormularioController implements Serializable {
 	private String activo = "";
 	private String cadena = "";
 	private String nombre;
-
 
 	private String titulo;
 	private String visibilidad;
@@ -269,7 +267,6 @@ public class FormularioController implements Serializable {
 		return listaEquipamiento = eqBean.obtenerTodos();
 	}
 
-	// Getters & Setters
 	public String getTitulo() {
 		return titulo;
 	}

@@ -21,6 +21,7 @@ import models.Usuario;
 public class LoginBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
 	@NotEmpty(message = "*Campo obligatorio")
 	private String username;
 	@NotEmpty(message = "*Campo obligatorio")
@@ -36,6 +37,7 @@ public class LoginBean implements Serializable {
 	public void verificarSesion() throws IOException {
 
 		try {
+
 			Usuario us = (Usuario) context.getExternalContext().getSessionMap().get("logueado");
 
 			if (us == null) {
@@ -50,7 +52,6 @@ public class LoginBean implements Serializable {
 
 	public String conexion() {
 
-	
 		try {
 
 			if (ad.authenticateComun(username, password) != null || ad.authenticateAdmin(username, password) != null

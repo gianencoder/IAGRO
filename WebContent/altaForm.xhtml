@@ -8,7 +8,6 @@
 
 
 	<ui:define name="content">
-
 		<div class="header bg-success pb-6">
 			<div class="container-fluid">
 				<div class="header-body">
@@ -88,7 +87,8 @@
 											<h:outputLabel class="form-control-label" value="Visibilidad" />
 											<h:selectOneMenu value="#{formBean.visibilidad}"
 												class="form-control">
-												<f:selectItem itemValue="4" itemLabel="Visibilidad" />
+												<f:selectItem itemValue="4" itemLabel="Visibilidad"
+													itemDisabled="true" />
 												<f:selectItem itemValue="Equipo" itemLabel="Equipo" />
 												<f:selectItem itemValue="Público" itemLabel="Público" />
 												<f:selectItem itemValue="Privado" itemLabel="Privado" />
@@ -119,7 +119,8 @@
 													class="checkbox form-check-input"
 													style="margin-top: -17px; margin-left: 105px" />
 											</h:outputLabel>
-											<div class="cmbLocalidad" id="cmbLocalidad">
+
+											<div class="cmbLocality" id="cmbLocalidad">
 												<h:selectOneMenu id="select" class="select form-control"
 													value="#{formulario.localidad}">
 													<f:selectItem itemLabel="Localidad" itemValue="NO" />
@@ -138,11 +139,10 @@
 													class="checkbox form-check-input"
 													style="margin-top: -17px; margin-left: 105px" />
 											</h:outputLabel>
-											<div class="cmbDep" id="cmbDep">
+											<div class="cmbDepartamento" id="cmbDep">
 												<h:selectOneMenu id="selectDep"
 													class="selectDep form-control"
 													value="#{formulario.departamento}">
-
 													<f:selectItem itemLabel="Departamento" itemValue="NO" />
 													<f:selectItem itemLabel="Departamento" itemValue="SI"
 														itemDisabled="true" />
@@ -158,7 +158,7 @@
 													class="checkbox form-check-input"
 													style="margin-top: -17px; margin-left: 105px" />
 											</h:outputLabel>
-											<div class="cmbReg" id="cmbReg">
+											<div class="cmbRegion" id="cmbReg">
 												<h:selectOneMenu id="selectReg"
 													class="selectReg form-control" value="#{formulario.region}">
 													<f:selectItem itemLabel="Región" itemValue="NO" />
@@ -176,7 +176,7 @@
 													class="checkbox form-check-input"
 													style="margin-top: -17px; margin-left: 105px" />
 											</h:outputLabel>
-											<div class="cmbEst" id="cmbEst">
+											<div class="cmbEstacion" id="cmbEst">
 												<h:selectOneMenu id="selectEst"
 													class="selectEst form-control"
 													value="#{formulario.estacion}">
@@ -195,7 +195,7 @@
 													class="checkbox form-check-input"
 													style="margin-top: -17px; margin-left: 105px" />
 											</h:outputLabel>
-											<div class="cmbMet" id="cmbMet">
+											<div class="cmbMetodo" id="cmbMet">
 												<h:selectOneMenu id="selectMet"
 													class="selectMet form-control" value="#{formulario.metodo}">
 													<f:selectItem itemLabel="Método" itemValue="NO" />
@@ -214,7 +214,7 @@
 													class="checkbox form-check-input"
 													style="margin-top: -17px; margin-left: 105px" />
 											</h:outputLabel>
-											<div class="cmbEqp" id="cmbEqp">
+											<div class="cmbEquipamiento" id="cmbEqp">
 												<h:selectOneMenu id="selectEqp"
 													class="selectEqp form-control"
 													value="#{formulario.equipamiento}">
@@ -246,17 +246,10 @@
 			</div>
 		</div>
 		<body>
-
 			<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 			<script src="https://kit.fontawesome.com/2c36e9b7b1.js"
 				crossorigin="anonymous"></script>
-
 			<script type="text/javascript" src="assets/js/formDinamico.js"></script>
-
-
-
-
 		</body>
 	</ui:define>
 

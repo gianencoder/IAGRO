@@ -17,6 +17,7 @@ import models.Equipamiento;
 import models.Estacion;
 import models.Localidad;
 import models.TemplateFormulario;
+import models.TipoMuestra;
 import models.Metodo;
 import models.Region;
 import models.Usuario;
@@ -59,7 +60,8 @@ public class ActividadCampoController implements Serializable {
 	}
 
 	public ActividadCampo crear(String nombre, String descripcion, Long idUsuario, Long idMetodo, Long idEstacion,
-			Long idForm, Long idLocalidad, Long idRegion, Long idEquipamiento, Long idDepartamento, String activoSN) {
+			Long idForm, Long idLocalidad, Long idRegion, Long idEquipamiento, Long idDepartamento, String activoSN,
+			Long idTipoMuestra) {
 		// TODO Auto-generated method stub
 
 		Estacion e = new Estacion();
@@ -86,6 +88,9 @@ public class ActividadCampoController implements Serializable {
 		Usuario u = new Usuario();
 		u.setId(idUsuario);
 
+		TipoMuestra tm = new TipoMuestra();
+		tm.setId(idTipoMuestra);
+
 		try {
 
 			ActividadCampo ac = new ActividadCampo();
@@ -101,6 +106,8 @@ public class ActividadCampoController implements Serializable {
 			ac.setFechaInicio(new Date());
 			ac.setFormulario(f);
 			ac.setUsuario(u);
+			ac.setTipoMuestra(tm);
+
 			return aBean.crear(ac);
 
 		} catch (Exception ex) {

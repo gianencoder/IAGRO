@@ -30,9 +30,10 @@ public class UsuarioController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	
 	@Min(value = 1, message = "Seleccione un Rol válido")
 	@Max(value = 3, message = "Seleccione un Rol válido")
-	@Pattern(regexp = "[1-3]", message = "Seleccione un Rol válido")
+	@Pattern(regexp = "[0-3]", message = "Seleccione un Rol válido")
 	private String rolId;
 	List<Rol> roles;
 	Rol selectRol;
@@ -42,6 +43,7 @@ public class UsuarioController implements Serializable {
 	@Column(length = 35)
 	@NotNull(message = "*Campo obligatorio")
 	@Size(min = 8, message = "Su contraseña debe tener al menos 8 caracteres")
+
 	@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$", message = "Debe contener al menos una mayúscula, una minúscula y un numero, con un minimo de 8 digitos")
 	private String pass;
 
@@ -57,6 +59,7 @@ public class UsuarioController implements Serializable {
 	@Inject
 	RolBean rBean;
 
+	
 	public String crear() {
 
 		Usuario u = new Usuario();
@@ -77,7 +80,7 @@ public class UsuarioController implements Serializable {
 		Usuario uMail = uBean.obtenerMail(usuario.getMail());
 		Usuario uCi = uBean.obtenerCI(usuario.getCedula());
 
-		if (user != null) {
+		if (user != null) { 
 
 			String msg = "El usuario '" + usuario.getUsername() + "' no está disponible";
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, msg);
@@ -90,7 +93,7 @@ public class UsuarioController implements Serializable {
 			return "";
 		}
 
-		if (uMail != null) {
+		if (uMail != null) { 
 
 			String msg = "El mail '" + usuario.getMail() + "' no está disponible";
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, msg);
@@ -103,7 +106,7 @@ public class UsuarioController implements Serializable {
 			return "";
 		}
 
-		if (uCi != null) {
+		if (uCi != null) { 
 			String msg = "La CI '" + usuario.getCedula() + "' no está disponible";
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, msg);
 			FacesContext ctx = FacesContext.getCurrentInstance();
@@ -117,7 +120,8 @@ public class UsuarioController implements Serializable {
 		}
 
 		try {
-
+			
+		
 			if (usuario.getRol().getId() == 1) {
 				usuario.setProfesion(null);
 			}
@@ -167,6 +171,7 @@ public class UsuarioController implements Serializable {
 
 		}
 	}
+
 
 	public String actualizar(Usuario usuario) {
 
@@ -291,6 +296,7 @@ public class UsuarioController implements Serializable {
 		listaInactivos = uBean.buscarInactivos();
 		return listaInactivos;
 	}
+	
 
 	public String editar(Long id) {
 
@@ -317,6 +323,7 @@ public class UsuarioController implements Serializable {
 		getUsuario();
 		return "";
 	}
+
 
 	public String eliminarlo(Long id) {
 		uBean.eliminarUsuario(id);

@@ -120,7 +120,7 @@ public class ReporteBean {
 			dFinal.setSeconds(59);
 
 			TypedQuery<ActividadCampo> query = em.createQuery(
-					"SELECT a FROM ActividadCampo a WHERE a.fechaInicio > :inicio AND a.fechaInicio < :fin ",
+					"SELECT a FROM ActividadCampo a WHERE a.fechaInicio > :inicio AND a.fechaInicio < :fin order by a.departamento.nombre",
 					ActividadCampo.class).setParameter("inicio", dInicio).setParameter("fin", dFinal);
 			List<ActividadCampo> actividades = query.getResultList();
 			return actividades;

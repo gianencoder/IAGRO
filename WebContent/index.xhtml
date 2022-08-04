@@ -6,7 +6,6 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
-
 	<ui:define name="content">
 		<div id="preloader">
 			<i class="circle-preloader"></i>
@@ -48,9 +47,7 @@
 										<f:ajax execute="filtro" render="usersTable" />
 									</h:inputText>
 									<h:commandButton image="assets/img/theme/search.png">
-
 									</h:commandButton>
-
 								</nav>
 								<h:dataTable id="usersTable" value="#{usuarioBean.filtro()}"
 									class="table align-items-center table-flush" var="usuario">

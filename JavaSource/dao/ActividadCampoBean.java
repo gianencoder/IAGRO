@@ -23,7 +23,6 @@ public class ActividadCampoBean {
 	public ActividadCampo crear(ActividadCampo actividadCampo) throws Exception {
 
 		try {
-
 			em.persist(actividadCampo);
 			em.flush();
 			return actividadCampo;
@@ -62,6 +61,7 @@ public class ActividadCampoBean {
 	 * 
 	 * @return List<ActividadCampo>
 	 */
+
 	public List<ActividadCampo> obtenerTodos() {
 
 		TypedQuery<ActividadCampo> query = em.createQuery("SELECT e FROM ActividadCampo e WHERE activoSN = 'S' ",
@@ -74,8 +74,10 @@ public class ActividadCampoBean {
 	 *
 	 * @return List<ActividadCampo>
 	 */
+
 	public List<ActividadCampo> all() {
-		TypedQuery<ActividadCampo> query = em.createQuery("SELECT e FROM ActividadCampo e", ActividadCampo.class);
+		TypedQuery<ActividadCampo> query = em
+				.createQuery("SELECT e FROM ActividadCampo e order by e.departamento.nombre", ActividadCampo.class);
 		return query.getResultList();
 	}
 
@@ -84,6 +86,7 @@ public class ActividadCampoBean {
 	 * @param filtro
 	 * @return List<ActividadCampo>
 	 */
+
 	public List<ActividadCampo> obtenerTodos(String filtro) {
 
 		TypedQuery<ActividadCampo> query = em

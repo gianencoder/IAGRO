@@ -2,8 +2,6 @@ package com.utils;
 
 import javax.validation.ConstraintViolationException;
 
-
-
 public class ExceptionsTools {
 
 	public static Throwable getCause(Throwable e) {
@@ -19,8 +17,8 @@ public class ExceptionsTools {
 		return result;
 	}
 
-public static String formatedMsg(Throwable ex) {
-		
-		return "["+ex.getClass().getSimpleName()+"] "+ex.getLocalizedMessage();
+	public static String formatedMsg(Throwable ex) {
+
+		return "[" + ex.getClass().getSimpleName() + "] " + ex.getLocalizedMessage();
 	}
 }

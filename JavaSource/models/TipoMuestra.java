@@ -21,9 +21,6 @@ public class TipoMuestra implements Serializable {
 
 	private String nombre;
 
-	@OneToMany
-	private List<TemplateFormulario> formulario;
-
 	public TipoMuestra() {
 		super();
 	}
@@ -32,7 +29,7 @@ public class TipoMuestra implements Serializable {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.formulario = formulario;
+
 	}
 
 	public Long getId() {
@@ -51,12 +48,9 @@ public class TipoMuestra implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public List<TemplateFormulario> getFormulario() {
-		return formulario;
-	}
-
-	public void setFormulario(List<TemplateFormulario> formulario) {
-		this.formulario = formulario;
+	@Override
+	public String toString() {
+		return nombre;
 	}
 
 }

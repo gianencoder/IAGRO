@@ -37,7 +37,7 @@ public class ConexionAD {
 
 	public ConexionAD() {
 		this.domain = "IAGRO";
-		this.ldapHost = "ldap://192.168.1.13:389";
+		this.ldapHost = "ldap://192.168.1.10:389";
 		this.searchBaseExperto = "OU=Usuario.Experto,dc=iagro,dc=local";
 		this.searchBaseAdmin = "OU=Usuario.Administrador,dc=iagro,dc=local";
 		this.searchBaseComun = "OU=Usuario.Comun,dc=iagro,dc=local";
@@ -68,7 +68,6 @@ public class ConexionAD {
 
 		try {
 			ctxGC = new InitialLdapContext(env, null);
-
 			NamingEnumeration answer = ctxGC.search(searchBaseExperto, searchFilter, searchCtls);
 			while (answer.hasMoreElements()) {
 				SearchResult sr = (SearchResult) answer.next();

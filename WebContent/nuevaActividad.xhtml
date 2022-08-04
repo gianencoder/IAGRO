@@ -22,175 +22,206 @@
 				</div>
 			</div>
 
-			<div class="contenedor">
-				<DIV style="margin-left: -150px; margin-top: -20px;">
-					<section class="tarjeta" id="tarjeta">
-						<form action="" id="formulario-tarjeta" class="formulario-tarjeta">
-						</form>
-
-					</section>
-				</DIV>
-
-				<h:form id="completeForm" prependId="false">
-					<div class="delantera active" id="delantera"
-						style="margin-left: -45px; margin-top: -1119px">
-						<div class="eyeClosed"></div>
-						<div class="datos">
-							<!-- *******************************************Descripcion************************************************ -->
-							<div class="grupo" id="numero">
-								<div style="margin-top: -200px; margin-left: -50px">
-									<h:inputText class="titulo" type="text" id="inputNumero"
-										maxlength="19" autocomplete="off" a:placeholder="Título"
-										value="#{formBean.titulo}">
-										<f:ajax render="msjForm" excute="guardar" />
-									</h:inputText>
-									<h:message id="msjForm" for="inputNumero"
-										style="color:#AD0909; font-size:12px" />
-									<div
-										style="margin-left: 650px; font-size: 10px; margin-top: -77px; margin-bottom: 85px;">
-										<h:outputLabel value="Template: #{formulario.titulo}"
-											class="form-control"
-											style="border-top: none; border-bottom: none;border-left: none;border-right: none;" />
-									</div>
-								</div>
-
-								<div class="grupo" style="margin-left: -50px;">
-									<p
-										style="color: black; margin-bottom: -90px; margin-top: 40px; margin-left: 44px; font-weight: 400; font-size: 15px">Descripción</p>
-									<h:inputTextarea class="descripcion" id="inputNombre"
-										maxlength="200" placeholder="Descripción"
-										value="#{formBean.descripcion}" />
-								</div>
-								<i class="fas fa-certificate rojo"></i>
-								<p id="inactive" class="inactive" style="font-size: 11px">(Inactivo)</p>
-
+			<div class="container-fluid mt--6" style="border-radius: 10px">
+				<div class="row">
+					<div class="col">
+						<div class="card">
+							<section class="tarjeta" id="tarjeta">
+								<form action="" id="formulario-tarjeta"
+									class="formulario-tarjeta"></form>
+							</section>
+							<div class="card-header border-0" style="border-radius: 10px">
+								<h:outputLabel value="Template: #{formulario.titulo}"
+									data-bs-toggle="tooltip" data-bs-placement="bottom"
+									title="Formulario seleccionado" />
 							</div>
 
-							<div class="flexbox" id="flexbox" style="margin-top: -20px">
-								<div class="visibilidad"
-									style="width: 100%; background: white; border-right-color: white; border-left-color: white; border-top-color: white; border-bottom-color: white">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="form-group">
+											<h:inputText class="form-control" type="text"
+												id="inputNumero" maxlength="19" autocomplete="off"
+												a:placeholder="Título" value="#{formBean.titulo}"
+												style="border-left:none; border-top:none; border-right:none; font-size:25px">
+											</h:inputText>
+										</div>
+									</div>
 
-									<br />
-									<h:outputLabel value="Visibilidad" class="form-control"
-										style="font-size:12px;border-top:none;border-bottom:none;border-left:none;border-right:none;margin-bottom: -16px;margin-left: -8px;" />
-									<h:outputText class="form-control"
-										value="#{formulario.visibilidad}"
-										style="font-size:10px;width:170px" />
+									<div class="col-lg-10">
+										<div class="form-group">
+											<h:outputLabel class="form-control-label" value="Descripción" />
+											<h:inputTextarea id="lastname" class="form-control"
+												value="#{formBean.descripcion}" data-bs-toggle="tooltip"
+												data-bs-placement="bottom" title="Campo obligatorio"
+												style="height:150px">
+											</h:inputTextarea>
+										</div>
+									</div>
 
+									<div class="col-lg-2">
+										<div class="form-group">
+											<h:inputText value="#{formulario.activoSN}" id="lblActivo"
+												class="lblActivo disabled" disabled="true" />
 
-									<h:selectOneMenu class="form-control"
-										value="#{formBean.userId}" id="userId"
-										style="width:170px; margin-top:10px; font-size:12px;">
-										<f:selectItem itemLabel="Usuario" itemValue="0" />
-										<f:selectItems value="#{usuarioBean.obtenerTodos()}"
-											var="user" itemLabel="#{user.username}"
-											itemValue="#{user.id}" />
-									</h:selectOneMenu>
+											<h:inputText value="#{formulario.departamento}"
+												id="lblDepartamento" class="lblDepartamento disabled"
+												disabled="true" />
 
+											<h:inputText value="#{formulario.localidad}"
+												id="lblLocalidad" class="lblLocalidad disabled"
+												disabled="true" />
+
+											<h:inputText value="#{formulario.estacion}" id="lblEstacion"
+												class="lblEstacion disabled" disabled="true" />
+
+											<h:inputText value="#{formulario.metodo}" id="lblMetodo"
+												class="lblMetodo disabled" disabled="true" />
+
+											<h:inputText value="#{formulario.region}" id="lblRegion"
+												class="lblRegion disabled" disabled="true" />
+
+											<h:inputText value="#{formulario.equipamiento}"
+												id="lblEquipamiento" class="lblEquipamiento disabled"
+												disabled="true" />
+										</div>
+									</div>
+
+									<div class="col-lg-10">
+										<div class="form-group">
+											<i class="fas fa-certificate rojo"></i>
+											<p id="inactive" class="inactive" style="font-size: 11px">(Inactivo)</p>
+										</div>
+									</div>
+
+									<div class="col-lg-8">
+										<div class="form-group">
+											<h:outputLabel value="Visibilidad" class="form-control"
+												style="font-size:12px;border-top:none;border-bottom:none;border-left:none;border-right:none;" />
+											<h:outputText class="form-control"
+												value="#{formulario.visibilidad}"
+												style="font-size:10px;width:170px" />
+										</div>
+									</div>
+
+									<div class="col-lg-8">
+										<div class="form-group">
+											<h:selectOneMenu class="form-control"
+												value="#{formBean.userId}" id="userId"
+												style="width:170px; margin-top:10px; font-size:12px;">
+												<f:selectItem itemLabel="Usuario" itemValue="0" />
+												<f:selectItems value="#{usuarioBean.obtenerTodos()}"
+													var="user" itemLabel="#{user.username}"
+													itemValue="#{user.id}" />
+											</h:selectOneMenu>
+										</div>
+									</div>
+
+									<div class="col-lg-8">
+										<div class="form-group">
+											<h:selectOneMenu class="form-control"
+												style="width:170px; margin-top:10px; font-size:12px;">
+												<f:selectItem itemLabel="Tipo de muestra" />
+												<f:selectItems value="#{tipoMuestraBean.obtenerTodos()}"
+													var="tm" itemLabel="#{tm.nombre}" itemValue="#{tm.id}" />
+											</h:selectOneMenu>
+										</div>
+									</div>
+
+									<div class="col-lg-6">
+										<div class="form-group">
+											<div class="cmbLocalidad active" id="cmbLocalidad">
+												<h:selectOneMenu id="select" class="form-control select"
+													value="#{formBean.locId}"
+													style="width:170px; margin-top:10px; font-size:12px;">
+													<f:selectItem itemLabel="Localidad" itemValue="0" />
+													<f:selectItems value="#{formBean.getLocalidad()}" var="loc"
+														itemLabel="#{loc.nombre}" itemValue="#{loc.id}" />
+												</h:selectOneMenu>
+											</div>
+										</div>
+									</div>
 									<h:outputLabel id="enabled" class="enabled"
 										value="#{formBean.activo}" />
 
-									<div class="cmbLocalidad active" id="cmbLocalidad">
-										<h:selectOneMenu id="select" class="form-control select"
-											value="#{formBean.locId}"
-											style="width:170px; margin-top:10px; font-size:12px;">
-
-											<f:selectItem itemLabel="Localidad" itemValue="0" />
-											<f:selectItems value="#{formBean.getLocalidad()}" var="loc"
-												itemLabel="#{loc.nombre}" itemValue="#{loc.id}" />
-
-										</h:selectOneMenu>
+									<div class="col-lg-6">
+										<div class="form-group">
+											<div class="cmbDep active" id="cmbDep">
+												<h:selectOneMenu class="form-control"
+													value="#{formulario.departamento}"
+													style="width:170px; margin-top:10px; font-size:12px;">
+													<f:selectItem itemLabel="Departamento" itemValue="14" />
+													<f:selectItems value="#{formBean.getDepartamento()}"
+														var="dept" itemValue="#{dept.id}"
+														itemLabel="#{dept.nombre}" />
+												</h:selectOneMenu>
+											</div>
+										</div>
 									</div>
 
-									<DIV class="cmbDep active" id="cmbDep">
-										<h:selectOneMenu class="form-control"
-											value="#{formulario.departamento}"
-											style="width:170px; margin-top:10px; font-size:12px;">
-											<f:selectItem itemLabel="Departamento" itemValue="14" />
-											<f:selectItems value="#{formBean.getDepartamento()}"
-												var="dept" itemValue="#{dept.id}" itemLabel="#{dept.nombre}" />
-
-
-
-										</h:selectOneMenu>
-									</DIV>
-
-									<div class="cmbReg active" id="cmbReg">
-										<h:selectOneMenu id="selectReg" class="form-control selectReg"
-											value="#{formulario.region}"
-											style="width:170px; margin-top:10px; font-size:12px;">
-											<f:selectItem itemLabel="Región" itemValue="0" />
-											<f:selectItems value="#{formBean.getRegion()}" var="region"
-												itemLabel="#{region.nombre}" itemValue="#{region.id}" />
-
-										</h:selectOneMenu>
+									<div class="col-lg-6">
+										<div class="form-group">
+											<div class="cmbReg active" id="cmbReg">
+												<h:selectOneMenu id="selectReg"
+													class="form-control selectReg" value="#{formulario.region}"
+													style="width:170px; margin-top:10px; font-size:12px;">
+													<f:selectItem itemLabel="Región" itemValue="0" />
+													<f:selectItems value="#{formBean.getRegion()}" var="region"
+														itemLabel="#{region.nombre}" itemValue="#{region.id}" />
+												</h:selectOneMenu>
+											</div>
+										</div>
 									</div>
 
-									<div class="cmbEst active" id="cmbEst">
-										<h:selectOneMenu id="selectEst" class="form-control selectEst"
-											value="#{formBean.estId}"
-											style="width:170px; margin-top:10px; font-size:12px;">
-											<f:selectItem itemLabel="Estación" itemValue="0" />
-											<f:selectItems value="#{formBean.getEstacion()}" var="est"
-												itemLabel="#{est.nombre}" itemValue="#{est.id}" />
-										</h:selectOneMenu>
+									<div class="col-lg-6">
+										<div class="form-group">
+											<div class="cmbEst active" id="cmbEst">
+												<h:selectOneMenu id="selectEst"
+													class="form-control selectEst" value="#{formBean.estId}"
+													style="width:170px; margin-top:10px; font-size:12px;">
+													<f:selectItem itemLabel="Estación" itemValue="0" />
+													<f:selectItems value="#{formBean.getEstacion()}" var="est"
+														itemLabel="#{est.nombre}" itemValue="#{est.id}" />
+												</h:selectOneMenu>
+											</div>
+										</div>
 									</div>
 
-									<div class="cmbMet active" id="cmbMet">
-										<h:selectOneMenu id="selectMet" class="selectMet form-control"
-											value="#{formBean.metId}"
-											style="width:170px; margin-top:10px; font-size:12px;">
-											<f:selectItem itemLabel="Método" itemValue="0" />
-											<f:selectItems value="#{formBean.getMetodo()}" var="met"
-												itemLabel="#{met.nombre}" itemValue="#{met.id}" />
-										</h:selectOneMenu>
+									<div class="col-lg-6">
+										<div class="form-group">
+											<div class="cmbMet active" id="cmbMet">
+												<h:selectOneMenu id="selectMet"
+													class="selectMet form-control" value="#{formBean.metId}"
+													style="width:170px; margin-top:10px; font-size:12px;">
+													<f:selectItem itemLabel="Método" itemValue="0" />
+													<f:selectItems value="#{formBean.getMetodo()}" var="met"
+														itemLabel="#{met.nombre}" itemValue="#{met.id}" />
+												</h:selectOneMenu>
+											</div>
+										</div>
 									</div>
 
-									<div class="cmbEqp active" id="cmbEqp">
-										<h:selectOneMenu id="selectEqp" class="selectEqp form-control"
-											value="#{formBean.eqpId}"
-											style="width:170px; margin-top:10px; font-size:12px;">
-											<f:selectItem itemLabel="Equipamiento" itemValue="0" />
-											<f:selectItems value="#{formBean.getEquipamiento()}"
-												var="est" itemLabel="#{est.nombre}" itemValue="#{est.id}" />
-										</h:selectOneMenu>
+									<div class="col-lg-6">
+										<div class="form-group">
+											<div class="cmbEqp active" id="cmbEqp">
+												<h:selectOneMenu id="selectEqp"
+													class="selectEqp form-control" value="#{formBean.eqpId}"
+													style="width:170px; margin-top:10px; font-size:12px;">
+													<f:selectItem itemLabel="Equipamiento" itemValue="0" />
+													<f:selectItems value="#{formBean.getEquipamiento()}"
+														var="est" itemLabel="#{est.nombre}" itemValue="#{est.id}" />
+												</h:selectOneMenu>
+											</div>
+										</div>
 									</div>
 									<h:inputText id="ai" class="ai" value="#{formulario.activoSN}" />
 								</div>
 							</div>
 						</div>
-
-						<div class="col-lg-12 guardarForm" style="margin-top: 20px;">
-							<h:commandButton class="btn btn-success my-4" id="guardar"
-								value="Guardar" update=":message" style="margin-top:100px;">
-								<f:ajax />
-							</h:commandButton>
-							<div class="tagController">
-								<h:inputText value="#{formulario.departamento}"
-									id="lblDepartamento" class="lblDepartamento" />
-
-								<h:inputText value="#{formulario.localidad}" id="lblLocalidad"
-									class="lblLocalidad" />
-
-								<h:inputText value="#{formulario.estacion}" id="lblEstacion"
-									class="lblEstacion" />
-
-								<h:inputText value="#{formulario.metodo}" id="lblMetodo"
-									class="lblMetodo" />
-
-								<h:inputText value="#{formulario.region}" id="lblRegion"
-									class="lblRegion" />
-
-								<h:inputText value="#{formulario.equipamiento}"
-									id="lblEquipamiento" class="lblEquipamiento" />
-
-								<h:inputText value="#{formulario.activoSN}" id="lblActivo"
-									class="lblActivo" />
-							</div>
-						</div>
 					</div>
-				</h:form>
+				</div>
 			</div>
+
 			<script type="text/javascript"
 				src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
 			<script type="text/javascript" src="assets/js/completeForm.js"></script>
@@ -199,10 +230,6 @@
 				crossorigin="anonymous"></script>
 
 			<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
-
 		</body>
-
 	</ui:define>
 </ui:composition>

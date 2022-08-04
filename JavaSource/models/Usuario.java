@@ -27,7 +27,7 @@ public class Usuario implements Serializable {
 	@Column(length = 35, unique = true)
 	@NotNull(message = "*Campo obligatorio")
 
-	@Pattern(regexp = "^[a-zA-Z ]+$", message = "No se permiten números")
+	@Pattern(regexp = "^[a-zA-Z ]+$", message = "Solo se permiten letras")
 	@Size(min = 8, max = 35, message = "Su usuario debe contener al menos 8 caracteres")
 	@NotEmpty(message = "*Campo obligatorio")
 	private String username;

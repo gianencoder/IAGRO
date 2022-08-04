@@ -8,28 +8,27 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import controller.FormularioController;
+import controller.TipoMuestraController;
 
-@Path("v1/formularios")
+@Path("v1/tipoMuestras")
 @Consumes(value = MediaType.APPLICATION_JSON)
 @Produces(value = MediaType.APPLICATION_JSON)
-public class FormularioAPI {
+public class TipoMuestraAPI {
 
-	
 	@Inject
-	FormularioController fc;
+	TipoMuestraController tm;
 
-	
-	@GET
 	@Path("/")
+	@GET
 	public Response listar() {
+
 		try {
-			return Response.ok(fc.obtenerTodos(), MediaType.APPLICATION_JSON).build();
+			return Response.ok(tm.obtenerTodos(), MediaType.APPLICATION_JSON).build();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Server error").build();
 		}
-	}
 
+	}
 }

@@ -60,8 +60,8 @@ public class MetodoBean {
 	public List<Metodo> obtenerTodos() {
 
 		TypedQuery<Metodo> query = em.createQuery("SELECT m FROM Metodo m ORDER BY m.nombre", Metodo.class);
-
 		return query.getResultList();
+
 	}
 
 	public Metodo getMetodoById(Long id) {

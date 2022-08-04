@@ -15,7 +15,6 @@ import controller.ActividadCampoController;
 import controller.FormularioController;
 import controller.ReporteController;
 import models.ActividadCampo;
-import models.TemplateFormulario;
 
 @Path("v1/reportes")
 @Consumes(value = MediaType.APPLICATION_JSON)
@@ -104,26 +103,14 @@ public class ActividadCampoAPI {
 			@HeaderParam("estacion") Long idEstacion, @HeaderParam("formulario") Long idForm,
 			@HeaderParam("localidad") Long idLocalidad, @HeaderParam("region") Long idRegion,
 			@HeaderParam("equipamiento") Long idEquipamiento, @HeaderParam("departamento") Long idDepartamento,
-			@HeaderParam("activo") String activoSN) {
-
-		System.out.println(nombre);
-		System.out.println(descripcion);
-		System.out.println(idUsuario);
-		System.out.println(idMetodo);
-		System.out.println(idEstacion);
-		System.out.println(idForm);
+			@HeaderParam("activo") String activoSN, @HeaderParam("tipoMuestra") Long idTipoMuestra) {
 
 		try {
-
 			ActividadCampo actividad = ac.crear(nombre, descripcion, idUsuario, idMetodo, idEstacion, idForm,
-					idLocalidad, idRegion, idEquipamiento, idDepartamento, activoSN);
-
+					idLocalidad, idRegion, idEquipamiento, idDepartamento, activoSN, idTipoMuestra);
 			if (actividad != null) {
-				System.out.println("entro en crear");
-				System.out.println(actividad);
 				return Response.ok(actividad).build();
 			}
-			System.out.println("no entro en crear");
 			return Response.status(Response.Status.BAD_REQUEST).entity("Datos no correctos").build();
 		} catch (Exception e) {
 			// TODO: handle exception

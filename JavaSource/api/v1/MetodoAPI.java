@@ -15,6 +15,7 @@ import controller.MetodoController;
 @Produces(value = MediaType.APPLICATION_JSON)
 public class MetodoAPI {
 
+
 	@Inject
 	MetodoController mc;
 

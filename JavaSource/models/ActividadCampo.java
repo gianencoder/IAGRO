@@ -47,6 +47,9 @@ public class ActividadCampo implements Serializable {
 	@ManyToOne
 	private Departamento departamento;
 
+	@ManyToOne
+	private TipoMuestra tipoMuestra;
+
 	public ActividadCampo() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -54,7 +57,7 @@ public class ActividadCampo implements Serializable {
 
 	public ActividadCampo(Long id, Usuario usuario, String nombre, String descripcion, Date fechaInicio,
 			String activoSN, Estacion estacion, Metodo metodo, Region region, Equipamiento equipamiento,
-			TemplateFormulario formulario, Localidad localidad, Departamento departamento) {
+			TemplateFormulario formulario, Localidad localidad, Departamento departamento, TipoMuestra tipoMuestra) {
 		super();
 		this.id = id;
 		this.usuario = usuario;
@@ -69,6 +72,7 @@ public class ActividadCampo implements Serializable {
 		this.formulario = formulario;
 		this.localidad = localidad;
 		this.departamento = departamento;
+		this.tipoMuestra = tipoMuestra;
 	}
 
 	public Long getId() {
@@ -173,6 +177,14 @@ public class ActividadCampo implements Serializable {
 
 	public void setDepartamento(Departamento departamento) {
 		this.departamento = departamento;
+	}
+
+	public TipoMuestra getTipoMuestra() {
+		return tipoMuestra;
+	}
+
+	public void setTipoMuestra(TipoMuestra tipoMuestra) {
+		this.tipoMuestra = tipoMuestra;
 	}
 
 	@Override

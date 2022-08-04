@@ -15,9 +15,11 @@ import controller.LocalidadController;
 @Produces(value = MediaType.APPLICATION_JSON)
 public class LocalidadAPI {
 
+	
 	@Inject
 	LocalidadController l;
 
+	
 	@Path("/")
 	@GET
 	public Response listar() {

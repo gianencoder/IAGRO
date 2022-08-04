@@ -35,8 +35,6 @@ public class AuthAPI {
 	@POST
 	@Path("/")
 	public Response login(@HeaderParam("username") String username, @HeaderParam("password") String password) {
-		System.out.println(username);
-		System.out.println(password);
 
 		try {
 
@@ -44,13 +42,10 @@ public class AuthAPI {
 					|| ad.authenticateExperto(username, password) != null) {
 
 				Usuario user = uBean.porUsuario(username);
-
 				if (user != null) {
 					String clave = new String(Hex.encodeHex(DigestUtils.md5(password)));
-
 					if (user.getContrasena().equals(clave) && user.getUsername().equals(username)) {
 						return Response.ok(user).build();
-
 					}
 				}
 			}

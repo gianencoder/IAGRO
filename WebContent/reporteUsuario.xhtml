@@ -38,7 +38,6 @@
 								<h:dataTable id="usersTable"
 									value="#{reporteBean.porUsuario(3)}"
 									class="table align-items-center table-flush" var="actividad">
-
 									<h:column>
 										<f:facet name="header"> Nombre</f:facet>
 										<h:outputText value="#{actividad.nombre}"
@@ -47,6 +46,28 @@
 									<h:column>
 										<f:facet name="header"> Descripcion</f:facet>
 										<h:outputText value="#{actividad.descripcion}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header"> Usuario</f:facet>
+										<h:outputText value="#{actividad.usuario.username}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header"> Tipo muestra</f:facet>
+										<ui:fragment
+											rendered="#{actividad.tipoMuestra.nombre == 'AA-N/A-AA'}">
+											<span
+												class="badge badge-pill badge-danger text-dark font-weight-bold"
+												data-bs-toggle="tooltip" title="No aplica">N/A</span>
+										</ui:fragment>
+
+										<ui:fragment
+											rendered="#{actividad.tipoMuestra.nombre != 'AA-N/A-AA'}">
+											<h:outputText value="#{actividad.tipoMuestra}" />
+										</ui:fragment>
+									</h:column>
+									<h:column>
+										<f:facet name="header"> Fecha</f:facet>
+										<h:outputText value="#{actividad.fechaInicio}" />
 									</h:column>
 									<h:column>
 										<f:facet name="header"> Método</f:facet>
@@ -77,14 +98,61 @@
 										</ui:fragment>
 									</h:column>
 									<h:column>
-										<f:facet name="header"> Fecha</f:facet>
-										<h:outputText value="#{actividad.fechaInicio}" />
+										<f:facet name="header"> Localidad</f:facet>
+										<ui:fragment
+											rendered="#{actividad.localidad.nombre == 'AA-N/A-AA'}">
+											<span
+												class="badge badge-pill badge-danger text-dark font-weight-bold"
+												data-bs-toggle="tooltip" title="No aplica">N/A</span>
+										</ui:fragment>
+
+										<ui:fragment
+											rendered="#{actividad.localidad.nombre != 'AA-N/A-AA'}">
+											<h:outputText value="#{actividad.localidad}" />
+										</ui:fragment>
 									</h:column>
 									<h:column>
-										<f:facet name="header"> Usuario</f:facet>
-										<h:outputText value="#{actividad.usuario.username}" />
-									</h:column>
+										<f:facet name="header"> Región</f:facet>
+										<ui:fragment
+											rendered="#{actividad.region.nombre == 'AA-N/A-AA'}">
+											<span
+												class="badge badge-pill badge-danger text-dark font-weight-bold"
+												data-bs-toggle="tooltip" title="No aplica">N/A</span>
+										</ui:fragment>
 
+										<ui:fragment
+											rendered="#{actividad.region.nombre != 'AA-N/A-AA'}">
+											<h:outputText value="#{actividad.region}" />
+										</ui:fragment>
+									</h:column>
+									<h:column>
+										<f:facet name="header"> Departamento</f:facet>
+										<ui:fragment
+											rendered="#{actividad.departamento.nombre == 'AA-N/A-AA'}">
+											<span
+												class="badge badge-pill badge-danger text-dark font-weight-bold"
+												data-bs-toggle="tooltip" title="No aplica">N/A</span>
+										</ui:fragment>
+
+										<ui:fragment
+											rendered="#{actividad.departamento.nombre != 'AA-N/A-AA'}">
+											<h:outputText value="#{actividad.departamento}" />
+										</ui:fragment>
+									</h:column>
+									<h:column>
+										<f:facet name="header"> Equipamiento</f:facet>
+										<ui:fragment
+											rendered="#{actividad.equipamiento.nombre == 'AA-N/A-AA'}">
+											<span
+												class="badge badge-pill badge-danger text-dark font-weight-bold"
+												data-bs-toggle="tooltip" title="No aplica">N/A</span>
+										</ui:fragment>
+
+										<ui:fragment
+											rendered="#{actividad.equipamiento.nombre != 'AA-N/A-AA'}">
+											<h:outputText value="#{actividad.equipamiento}" />
+										</ui:fragment>
+									</h:column>
 									<h:column>
 										<f:facet name="header"> Estado</f:facet>
 										<ui:fragment rendered="#{actividad.activoSN == 'Activo'}">
